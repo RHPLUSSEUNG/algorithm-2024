@@ -1,0 +1,60 @@
+{
+    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+    // 기존 특성에 대한 설명을 보려면 가리킵니다.
+    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Solution",
+            "request": "launch",
+            "mainClass": "Solution",
+            "projectName": "Chapter1_c0d54ab1"
+        },
+        {
+            "type": "java",
+            "name": "Radix",
+            "request": "launch",
+            "mainClass": "Radix",
+            "projectName": "Chapter1_c1a09c3d"
+        },
+        {
+            "type": "java",
+            "name": "Counting",
+            "request": "launch",
+            "mainClass": "Counting",
+            "projectName": "Chapter1_c1a09c3d"
+        },
+        {
+            "type": "java",
+            "name": "Shell",
+            "request": "launch",
+            "mainClass": "Shell",
+            "console": "internalConsole",
+            "projectName": "Chapter1_c1a09c3d"
+        },
+        {
+            "type": "java",
+            "name": "Insertion",
+            "request": "launch",
+            "mainClass": "Insertion",
+            "console": "internalConsole",
+            "projectName": "Chapter1_c1a09c3d"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "console": "internalConsole",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Selection",
+            "request": "launch",
+            "console": "internalConsole",
+            "mainClass": "Selection",
+            "projectName": "Chapter1_c1a09c3d"
+        }
+    ]
+}
