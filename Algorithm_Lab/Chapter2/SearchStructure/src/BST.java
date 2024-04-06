@@ -169,7 +169,7 @@ public class BST<K extends Comparable<K>, V>
     {
         if(root == null)
         {
-            return;
+            return; 
         }
 
         Node<K, V> x, y, p;
@@ -258,6 +258,51 @@ public class BST<K extends Comparable<K>, V>
             parent.right = child; //오른쪽 자식
         }
     }
+
+    protected void rotate(Node<K, V> x) //LL과 RR을 하나의 함수로. c->x->y가 문제
+    {
+        Node<K, V> y = x.parent;
+        Node<K, V> z = y.parent;
+
+        if(z == null)
+        {
+            root = x;
+            x.parent = null;            
+        }
+        else
+        {
+            relink(z, x, y == z.left); //x를 z의 자식으로. 즉, x가 c와 y의 부모
+        }
+
+        if(x == y.left)
+        {
+            relink(y, x.right, true);
+            relink(x, y, false); //LL            
+        }
+        else
+        {
+            relink(y, x.left, false);
+            relink(x, y, true); //RR
+        }
+    }
+
+        protected Node <K, V> restructure(Node<K, V> x) //x->y->z가 문제
+        {
+            Node<K,V> y = x.parent;
+            Node<K,V> z = y.parent;
+
+            if((x == y.left) == (y == z.left))
+            {
+                rotate(y);
+                return y; //LL or RR : y가 중간값
+            }
+            else
+            {
+                rotate(x);
+                rotate(x);
+                return x; //중간값이 x:LR/RL -> LL/RR로 일단 변경
+            }
+        }
 
     protected Node<K, V> min(Node<K, V> x)
     {
