@@ -72,4 +72,22 @@ public class LinearProbingHashST<K, V>
         vals[i] = value;
         N++;
     }
+
+    private void resize(int cap)
+    {
+        LinearProbingHashST<K, V> t;
+        t = new LinearProbingHashST<>(cap);
+
+        for(int i = 0; i < M; i++) //새로운 테이블에 모든 원소 추가
+        {
+            if(keys[i] != null)
+            {
+                t.put(keys[i], vals[i]);
+            }
+        }
+    }
+
+    keys = t.keys;
+    vals = t.vals;
+    M = t.M;
 }
