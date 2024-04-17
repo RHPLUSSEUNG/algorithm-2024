@@ -85,9 +85,44 @@ public class LinearProbingHashST<K, V>
                 t.put(keys[i], vals[i]);
             }
         }
+
+        keys = t.keys;
+        vals = t.vals;
+        M = t.M;
     }
 
-    keys = t.keys;
-    vals = t.vals;
-    M = t.M;
+    public void deleteO(K key)
+    {
+        if(!contains(key))
+        {
+            return;
+        }
+
+        int i = hash(key); //테이블에서 key가 저장된 위치를 검색
+        
+        while(!key.equals(keys[i]))
+        {
+            i = (i + 1) % M;
+        }
+
+        keys[i] = null;
+        vals[i] = null; //키와 값을 삭제
+
+        i = (i + 1) % M //rehash all keys in same cluster
+
+        while(keys[i] != null) //delete keys[i] and vals[i], and reinsert
+        {
+            K keyToRehash = keys[i];
+            V valToRehash = vals[i];
+
+            keys[i] = null;
+            vals[i] = null;
+            N--;
+
+            put(keyToRehash, valToRehash);
+            i = (i + 1) % M;
+        }
+
+        N--;
+    }
 }
