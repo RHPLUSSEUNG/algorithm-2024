@@ -45,8 +45,8 @@ public class MergeTD extends AbstractSort
 
         int mid = lo + (hi - lo) / 2;
 
-        sort(a, aux, lo, mid); //아래 부분 정렬
-        sort(a, aux, mid + 1, hi); //윗 부분 정렬
-        merge(a, aux, lo, mid, hi); //두 부분 병합
+        sort(aux, a, lo, mid); //아래 부분 정렬 , aux와 a의 역할 switch
+        sort(aux, a, mid + 1, hi); //윗 부분 정렬
+        merge(aux, a, lo, mid, hi); //두 부분 병합
     }
 }
