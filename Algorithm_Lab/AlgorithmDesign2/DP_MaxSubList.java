@@ -1,4 +1,4 @@
-public class MaxSubList
+public class DP_MaxSubList
 {
     public static double maxSubList(double[] A, int n)
     {
